@@ -13,10 +13,10 @@ def get_page(url):
     # If error in reaching Ebay via provided url, throw a custom error message
     if not response.ok:
         print('Server responded:', response.status_code)
+        return None
     else:
         soup = BeautifulSoup(response.text, 'lxml')
-
-    return soup
+        return soup
 
 # Returns a dictionary containing the title, price, currency, and number of item sold given an item's url link
 def get_detail_data(soup):
